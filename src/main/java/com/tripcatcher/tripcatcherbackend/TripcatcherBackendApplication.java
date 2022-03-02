@@ -1,0 +1,13 @@
+package com.tripcatcher.tripcatcherbackend;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class TripcatcherBackendApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(TripcatcherBackendApplication.class, args);
+    }
+
+}
