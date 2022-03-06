@@ -1,5 +1,12 @@
 package repository.entity.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum UserStatus {
-    INACTIVE,ACTIVE
+    INACTIVE(0),ACTIVE(1);
+    int code;
+    UserStatus(int code){
+        this.code = code;
+    }
 }

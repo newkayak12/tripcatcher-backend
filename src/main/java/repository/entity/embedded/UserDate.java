@@ -8,7 +8,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.EntityListeners;
-import java.util.Date;
+import java.time.LocalDateTime;
 @EntityListeners(AuditingEntityListener.class)
 @Embeddable
 @Getter
@@ -19,9 +19,9 @@ import java.util.Date;
 public class UserDate {
     @CreatedDate
     @Column(updatable = false)
-    private Date userRegistrationDate;
+    private LocalDateTime userRegistrationDate;
     @LastModifiedDate
-    private Date userModifiedDate;
-    private Date userWithdrawalDate;
-    private Date userLastSignDate;
+    private LocalDateTime userModifiedDate;
+    private LocalDateTime userWithdrawalDate;
+    private LocalDateTime userLastSignDate;
 }

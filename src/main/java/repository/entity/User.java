@@ -1,8 +1,11 @@
 package repository.entity;
 
 import lombok.*;
+import repository.entity.converter.LocaleConverter;
+import repository.entity.converter.UserStateConverter;
 import repository.entity.embedded.UserAddress;
 import repository.entity.embedded.UserDate;
+import repository.entity.enums.Locale;
 import repository.entity.enums.UserStatus;
 
 import javax.persistence.*;
@@ -28,8 +31,10 @@ public class User {
     private UserAddress address;
     @Embedded
     private UserDate date;
-    @Enumerated(EnumType.ORDINAL)
+    @Convert(converter = UserStateConverter.class)
     private UserStatus userStatus;
+    @Convert(converter = LocaleConverter.class)
+    private Locale locale;
 
 
 }
