@@ -10,6 +10,8 @@ import repository.entity.enums.UserStatus;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -46,6 +48,10 @@ public class User implements Serializable {
     private UserStatus userStatus;
     @Convert(converter = LocaleConverter.class)
     private Locale locale;
+    @OneToMany(mappedBy = "user")
+    private List<CouponBox> couponBox = new ArrayList<>();
+    @OneToOne(mappedBy = "user")
+    private UserProfile userProfile;
 
 
 
