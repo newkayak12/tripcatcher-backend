@@ -30,4 +30,7 @@ public class Vendor {
     private String vendorPhoneNumber;
     @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime vendorLastSignDate;
+    @OneToOne
+    @JoinColumn(name = "accommodation_no")
+    private Accommodation accommodation;
 }
