@@ -23,11 +23,11 @@ public class Accommodation {
     private AccommodationEnums.AccommodationCategory accommodationCategory;
     @Convert(converter = AccommodationCategoryDetailConverter.class)
     private AccommodationEnums.AccommodationCategoryDetail accommodationCategoryDetail;
-    @Column(length = 40)
+    @Column(length = 40, name = "accommodation_name_KR")
     private String accommodationNameKR;
-    @Column(length = 40)
+    @Column(length = 40, name = "accommodation_name_JP")
     private String accommodationNameJP;
-    @Column(length = 40)
+    @Column(length = 40, name = "accommodation_name_EN")
     private String accommodationNameEN;
     @Column(length = 40)
     private String accommodationPhoneNumber;
@@ -64,10 +64,10 @@ public class Accommodation {
     private String accommodationLongitude;
     @Column(length = 100)
     private String accommodationHomepageLink;
-    @Column(columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT", name = "accommodation_description_KR")
     private String accommodationDescriptionKR;
-    @Column(columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT", name = "accommodation_description_JP")
     private String accommodationDescriptionJP;
-    @Column(columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT", name = "accommodation_description_EN")
     private String accommodationDescriptionEN;
 }

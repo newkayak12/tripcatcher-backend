@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 public class CouponBox {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long couponBoxNumber;
+    private String couponBoxNo;
     @ManyToOne
     @JoinColumn(name = "user_no")
     private User user;

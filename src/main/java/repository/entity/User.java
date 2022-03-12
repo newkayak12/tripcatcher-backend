@@ -52,6 +52,8 @@ public class User implements Serializable {
     private List<CouponBox> couponBox = new ArrayList<>();
     @OneToOne(mappedBy = "user")
     private UserProfile userProfile;
+    @OneToMany(mappedBy = "user")
+    private List<Like> likes = new ArrayList<>();
 
 
 
