@@ -1,4 +1,4 @@
-package common;
+package common.constcode;
 
 import org.springframework.beans.factory.annotation.Value;
 
