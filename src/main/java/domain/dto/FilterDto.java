@@ -1,6 +1,5 @@
 package domain.dto;
 
-import domain.dto.embedded.RoomAmenitiesDto;
 import lombok.Data;
 
 import java.io.Serializable;
