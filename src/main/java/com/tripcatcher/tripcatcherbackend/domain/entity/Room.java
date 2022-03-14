@@ -1,5 +1,7 @@
 package com.tripcatcher.tripcatcherbackend.domain.entity;
 
+import com.tripcatcher.tripcatcherbackend.common.annotation.FetchWith;
+import com.tripcatcher.tripcatcherbackend.common.entityListener.DiscountRateEntityListener;
 import com.tripcatcher.tripcatcherbackend.domain.entity.embedded.RoomAmenities;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
@@ -16,10 +18,10 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@EqualsAndHashCode
 @DynamicInsert
 @DynamicUpdate
 @Entity
+@EntityListeners({DiscountRateEntityListener.class})
 public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -48,19 +50,14 @@ public class Room {
     private Integer roomTotalPrice;
     private LocalTime roomCheckInTime;
     private LocalTime roomCheckOutTime;
-
     @Embedded
     private RoomAmenities amenities;
-
     @Column(name = "room_information_KR", columnDefinition = "TEXT")
     private String roomInformationKR;
-
     @Column(name = "room_information_JP", columnDefinition = "TEXT")
     private String roomInformationJP;
-
     @Column(name = "room_information_EN", columnDefinition = "TEXT")
     private String roomInformationEN;
-
     @Column(name = "room_structure_KR", length = 300)
     private String roomStructureKR;
     @Column(name = "room_structure_JP", length = 300)
@@ -80,12 +77,12 @@ public class Room {
     @Column(name = "room_description_EN", length = 400)
     private String roomDescriptionEN;
     private Double roomScore;
-
     @OneToMany(mappedBy = "room")
     private List<Keywords> keywordsList = new ArrayList<>();
     @OneToMany(mappedBy = "room")
-    private List<DiscountRate> discountRateList  = new ArrayList<>();
-    @OneToMany(mappedBy = "room")
     private List<RoomImage> roomImages = new ArrayList<>();
+    @Transient
+    @FetchWith
+    private DiscountRate roomDiscountRate;
 
 }

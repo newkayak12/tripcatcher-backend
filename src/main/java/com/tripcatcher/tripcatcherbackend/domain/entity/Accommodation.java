@@ -63,10 +63,10 @@ public class Accommodation {
     private Address addressEN;
     @Convert(converter = AccommodationSearchFilterStateConverter.class)
     @Enumerated
-    private AccommodationEnums.State state;
+    private AccommodationEnums.State accommodationState;
     @Convert(converter = AccommodationSearchFilterCityConverter.class)
     @Enumerated
-    private AccommodationEnums.City city;
+    private AccommodationEnums.City accommodationCity;
     @Column(length = 30)
     private String accommodationLatitude;
     @Column(length = 30)

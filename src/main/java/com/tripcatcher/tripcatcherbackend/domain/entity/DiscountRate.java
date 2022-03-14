@@ -20,11 +20,9 @@ public class DiscountRate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long discountRateNo;
-
     @ManyToOne
     @JoinColumn(name = "room_no")
     private Room room;
-
     private Integer discountRate;
     private LocalDateTime discountRateStartDate;
     private LocalDateTime discountRateEndDate;
