@@ -1,18 +1,23 @@
 package com.tripcatcher.tripcatcherbackend.adminController;
 
+import com.tripcatcher.tripcatcherbackend.common.exceptions.AccessDenied;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import service.AdminService;
+import service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 @RestController
 @Slf4j
 @RequestMapping(value = "/admin/sign")
 @CrossOrigin("*")
-public class UserController {
+@RequiredArgsConstructor
+public class AdminController {
+    private final AdminService adminService;
+
     @RequestMapping(value = "/getIp",method = RequestMethod.GET)
     public String getIp(HttpServletRequest request){
         String ip = request.getHeader("X-Forwarded-For");
@@ -39,5 +44,10 @@ public class UserController {
         }
         log.warn("IP {}",ip);
         return ip;
+    }
+
+    @RequestMapping(value = "/signIn",method = RequestMethod.GET)
+    public Map<String,Object> signIn(@RequestParam String id, @RequestParam String password, @RequestParam String ipAddress) throws AccessDenied {
+        return adminService.signIn(id, password, ipAddress);
     }
 }

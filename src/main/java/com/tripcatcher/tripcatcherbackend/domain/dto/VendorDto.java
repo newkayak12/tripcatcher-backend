@@ -8,13 +8,13 @@ import java.time.LocalDateTime;
 @Data
 public class VendorDto implements Serializable {
     private static final long serialVersionUID = 6399503259737223231L;
-    private final Long vendorNo;
-    private final String vendorId;
-    private final String vendorPassword;
-    private final String VendorNameKR;
-    private final String VendorNameJP;
-    private final String VendorNameEN;
-    private final String vendorPhoneNumber;
-    private final LocalDateTime vendorLastSignDate;
-    private final AccommodationDto accommodation;
+    private Long vendorNo;
+    private String vendorId;
+    private String vendorPassword;
+    private String VendorNameKR;
+    private String VendorNameJP;
+    private String VendorNameEN;
+    private String vendorPhoneNumber;
+    private LocalDateTime vendorLastSignDate;
+    private AccommodationDto accommodation;
 }
