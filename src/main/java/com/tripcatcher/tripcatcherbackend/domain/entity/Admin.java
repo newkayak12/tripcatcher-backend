@@ -1,5 +1,7 @@
 package com.tripcatcher.tripcatcherbackend.domain.entity;
 
+import com.tripcatcher.tripcatcherbackend.common.annotation.FetchWith;
+import com.tripcatcher.tripcatcherbackend.common.entityListener.AdminEntityListener;
 import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
@@ -17,6 +19,7 @@ import java.time.LocalDateTime;
 @DynamicInsert
 @DynamicUpdate
 @Entity
+@EntityListeners(AdminEntityListener.class)
 public class Admin implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,5 +30,6 @@ public class Admin implements Serializable {
     private String adminPassword;
     @Column(length = 20)
     private String adminIpAddress;
+    @FetchWith
     private LocalDateTime adminLastSignDate;
 }

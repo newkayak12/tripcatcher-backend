@@ -1,11 +1,10 @@
 package com.tripcatcher.tripcatcherbackend.adminController;
 
 import com.tripcatcher.tripcatcherbackend.common.exceptions.AccessDenied;
+import com.tripcatcher.tripcatcherbackend.service.AdminService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
-import service.AdminService;
-import service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
@@ -16,6 +15,7 @@ import java.util.Map;
 @CrossOrigin("*")
 @RequiredArgsConstructor
 public class AdminController {
+
     private final AdminService adminService;
 
     @RequestMapping(value = "/getIp",method = RequestMethod.GET)

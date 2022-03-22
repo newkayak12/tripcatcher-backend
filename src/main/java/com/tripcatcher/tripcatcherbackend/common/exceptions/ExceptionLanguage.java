@@ -5,7 +5,8 @@ import lombok.Getter;
 @Getter
 public enum ExceptionLanguage {
     PASSWORD_MISMATCH(-1, "비밀번호가 틀렸습니다.", "비밀번호가 틀렸습니다.", "비밀번호가 틀렸습니다."),
-    DIFFERENT_IP_ADDRESS(-2, "IP주소가 다릅니다.", "IP주소가 다릅니다.", "IP주소가 다릅니다.");
+    DIFFERENT_IP_ADDRESS(-2, "IP주소가 다릅니다.", "IP주소가 다릅니다.", "IP주소가 다릅니다."),
+    NOT_EXIST_USER(-3,"존재하지 않는 사용자입니다.", "존재하지 않는 사용자입니다.", "존재하지 않는 사용자입니다.");
 
     Integer code;
     String KR;
